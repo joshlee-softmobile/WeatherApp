@@ -18,18 +18,19 @@ export class WeatherApp extends LitElement {
     header {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: #fff;
-      padding: 20px;
+      padding: var(--header-padding, 20px 16px);
       text-align: center;
     }
 
-    header h1 { font-size: 24px; margin-bottom: 8px; }
+    header h1 { font-size: var(--header-title-size, 24px); margin-bottom: var(--header-title-mb, 8px); }
 
     .header-controls {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       align-items: center;
-      gap: 16px;
-      font-size: 13px;
+      gap: var(--header-controls-gap, 10px 16px);
+      font-size: var(--header-controls-size, 13px);
     }
 
     .update-time {
@@ -68,8 +69,10 @@ export class WeatherApp extends LitElement {
       margin: 24px auto;
       padding: 0 16px;
       display: grid;
+      /* Desktop / MacBook: auto-fill with generous card min-width */
       grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
       gap: 20px;
+      box-sizing: border-box;
     }
 
     .loading {
@@ -87,12 +90,51 @@ export class WeatherApp extends LitElement {
       color: #aaa;
     }
 
+    /* iPad landscape (1024px) — keep auto-fill, just tighten padding */
     @media (max-width: 1100px) {
-      main { grid-template-columns: repeat(2, 1fr); }
+      main {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
     }
 
-    @media (max-width: 640px) {
-      main { grid-template-columns: 1fr; }
+    /* iPad portrait (768px) — 2-column, tighter */
+    @media (max-width: 820px) {
+      main {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        padding: 0 12px;
+        margin: 16px auto;
+      }
+    }
+
+    /* iPhone landscape (~667-768px) — 2 columns, compressed */
+    @media (max-width: 767px) and (orientation: landscape) {
+      main {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 0 10px;
+        margin: 12px auto;
+      }
+    }
+
+    /* iPhone portrait / small devices — single column */
+    @media (max-width: 600px) {
+      main {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        padding: 0 12px;
+        margin: 14px auto;
+      }
+    }
+
+    /* Extra-small iPhones (SE etc.) */
+    @media (max-width: 390px) {
+      main {
+        padding: 0 8px;
+        gap: 12px;
+        margin: 10px auto;
+      }
     }
   `;
 

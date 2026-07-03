@@ -26,8 +26,8 @@ export class RainChart extends LitElement {
     .rain-chart {
       display: flex;
       align-items: flex-end;
-      height: 80px;
-      gap: 3px;
+      height: var(--rain-chart-height, 80px);
+      gap: var(--rain-bar-gap, 3px);
       margin-bottom: 4px;
     }
     .rain-bar-wrap {
@@ -37,6 +37,7 @@ export class RainChart extends LitElement {
       align-items: center;
       height: 100%;
       justify-content: flex-end;
+      min-width: 0;
     }
     .rain-bar {
       width: 100%;
@@ -46,20 +47,25 @@ export class RainChart extends LitElement {
       background: linear-gradient(to top, #85c1e9, #2e86c1);
     }
     .rain-label {
-      font-size: 9px;
+      font-size: var(--rain-label-size, 9px);
       color: #999;
       margin-top: 2px;
       white-space: nowrap;
     }
     .rain-labels {
       display: flex;
-      gap: 3px;
+      gap: var(--rain-bar-gap, 3px);
+      overflow: hidden;
     }
     .rain-labels span {
       flex: 1;
       text-align: center;
-      font-size: 10px;
+      font-size: var(--rain-time-size, 10px);
       color: #888;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-width: 0;
     }
   `;
 

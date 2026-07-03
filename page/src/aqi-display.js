@@ -28,7 +28,7 @@ export class AQIDisplay extends LitElement {
       display: block;
     }
     .aq-section {
-      margin-top: 16px;
+      margin-top: var(--aq-section-mt, 16px);
     }
     .section-title {
       font-size: 14px;
@@ -41,14 +41,15 @@ export class AQIDisplay extends LitElement {
       align-items: center;
       gap: 12px;
       margin-bottom: 8px;
+      flex-wrap: wrap;
     }
     .aqi-badge {
-      font-size: 28px;
+      font-size: var(--aqi-badge-size, 28px);
       font-weight: 300;
       color: #333;
     }
     .aqi-level {
-      font-size: 13px;
+      font-size: var(--aqi-level-size, 13px);
       padding: 2px 10px;
       border-radius: 12px;
       color: #fff;
@@ -62,22 +63,27 @@ export class AQIDisplay extends LitElement {
 
     .aq-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6px 16px;
-      font-size: 13px;
+      grid-template-columns: var(--aq-grid-cols, 1fr 1fr);
+      gap: var(--aq-grid-gap, 6px 16px);
+      font-size: var(--aq-grid-size, 13px);
     }
     .aq-item {
       display: flex;
       justify-content: space-between;
       padding: 4px 0;
       border-bottom: 1px solid #f0f0f0;
+      min-width: 0;
     }
     .aq-item .label {
       color: #888;
+      white-space: nowrap;
+      margin-right: 4px;
     }
     .aq-item .value {
       font-weight: 500;
       color: #333;
+      white-space: nowrap;
+      text-align: right;
     }
   `;
 

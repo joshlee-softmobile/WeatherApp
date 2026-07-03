@@ -12,3 +12,4 @@ crons = [ "*/10 * * * *" ]
 [[kv_namespaces]]
 binding = "WEATHER_APP_KV"
 id = "23b17026bf844dccb453adfe5c24eb09"
+preview_id = "23b17026bf844dccb453adfe5c24eb09"  # same ID — used by `wrangler dev` locally

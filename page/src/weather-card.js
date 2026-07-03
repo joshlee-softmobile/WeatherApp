@@ -33,9 +33,9 @@ export class WeatherCard extends LitElement {
     }
     .card {
       background: #fff;
-      border-radius: 16px;
+      border-radius: var(--card-radius, 16px);
       box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-      padding: 24px;
+      padding: var(--card-padding, 24px);
       transition: box-shadow 0.2s;
     }
     .card:hover {
@@ -45,40 +45,45 @@ export class WeatherCard extends LitElement {
       display: flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 16px;
+      margin-bottom: var(--card-header-mb, 16px);
+      flex-wrap: wrap;
     }
     .card-header h2 {
-      font-size: 20px;
+      font-size: var(--card-title-size, 20px);
       color: #333;
       margin: 0;
+      min-width: 0;
+      flex: 1 1 auto;
     }
     .card-header img {
-      width: 48px;
-      height: 48px;
+      width: var(--weather-icon-size, 48px);
+      height: var(--weather-icon-size, 48px);
+      flex-shrink: 0;
     }
     .card-header .condition-text {
-      font-size: 14px;
+      font-size: var(--condition-text-size, 14px);
       color: #666;
+      white-space: nowrap;
     }
     .temp-section {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: var(--temp-section-mb, 20px);
     }
     .temp-current {
-      font-size: 56px;
+      font-size: var(--temp-size, 56px);
       font-weight: 300;
       line-height: 1;
       color: #333;
     }
     .temp-current .unit {
-      font-size: 24px;
+      font-size: var(--temp-unit-size, 24px);
     }
     .temp-detail {
       display: flex;
       justify-content: center;
-      gap: 20px;
+      gap: var(--temp-detail-gap, 20px);
       margin-top: 8px;
-      font-size: 14px;
+      font-size: var(--temp-detail-size, 14px);
       color: #666;
     }
     .temp-detail .feels-like {

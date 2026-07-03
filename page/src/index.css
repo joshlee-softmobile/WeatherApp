@@ -6,3 +6,154 @@ body {
   color: #333;
   min-height: 100vh;
 }
+
+/* ─────────────────────────────────────────────────────────────
+   Responsive Design Tokens
+   Single source of truth for all breakpoints.
+   CSS custom properties pierce Shadow DOM — every Lit component
+   reads these via var() without duplicating any @media rules.
+   ───────────────────────────────────────────────────────────── */
+:root {
+  /* Card shell */
+  --card-padding: 24px;
+  --card-radius: 16px;
+
+  /* Temperature display */
+  --temp-size: 56px;
+  --temp-unit-size: 24px;
+
+  /* Card header */
+  --card-title-size: 20px;
+  --weather-icon-size: 48px;
+  --condition-text-size: 14px;
+  --card-header-mb: 16px;
+  --temp-section-mb: 20px;
+
+  /* Temp detail row */
+  --temp-detail-size: 14px;
+  --temp-detail-gap: 20px;
+
+  /* Rain chart */
+  --rain-chart-height: 80px;
+  --rain-bar-gap: 3px;
+  --rain-label-size: 9px;
+  --rain-time-size: 10px;
+
+  /* AQI */
+  --aqi-badge-size: 28px;
+  --aqi-level-size: 13px;
+  --aq-grid-size: 13px;
+  --aq-grid-gap: 6px 16px;
+  --aq-grid-cols: 1fr 1fr;
+  --aq-section-mt: 16px;
+
+  /* App header */
+  --header-padding: 20px 16px;
+  --header-title-size: 24px;
+  --header-title-mb: 8px;
+  --header-controls-gap: 10px 16px;
+  --header-controls-size: 13px;
+}
+
+/* ── iPad landscape (~1100px) ── */
+@media (max-width: 1100px) {
+  :root {
+    --card-padding: 22px 20px;
+  }
+}
+
+/* ── iPad portrait / small landscape (~820px) ── */
+@media (max-width: 820px) {
+  :root {
+    --card-padding: 20px 18px;
+    --temp-size: 48px;
+    --temp-unit-size: 22px;
+    --rain-chart-height: 72px;
+    --rain-bar-gap: 2px;
+    --rain-label-size: 8px;
+    --rain-time-size: 9px;
+    --aqi-badge-size: 24px;
+    --aq-grid-size: 12px;
+    --aq-grid-gap: 5px 12px;
+  }
+}
+
+/* ── iPhone landscape (≤767px, landscape) ── */
+@media (max-width: 767px) and (orientation: landscape) {
+  :root {
+    --card-padding: 16px 14px;
+    --card-radius: 12px;
+    --temp-size: 42px;
+    --temp-unit-size: 18px;
+    --card-title-size: 17px;
+    --weather-icon-size: 36px;
+    --card-header-mb: 10px;
+    --temp-section-mb: 14px;
+    --temp-detail-size: 13px;
+    --temp-detail-gap: 14px;
+    --rain-chart-height: 60px;
+    --rain-bar-gap: 2px;
+    --rain-label-size: 7px;
+    --rain-time-size: 8px;
+    --aqi-badge-size: 22px;
+    --aqi-level-size: 12px;
+    --aq-grid-size: 11px;
+    --aq-grid-gap: 4px 10px;
+    --aq-section-mt: 12px;
+  }
+}
+
+/* ── iPhone portrait (≤600px) ── */
+@media (max-width: 600px) {
+  :root {
+    --card-padding: 18px 16px;
+    --card-radius: 14px;
+    --temp-size: 52px;
+    --temp-unit-size: 22px;
+    --card-title-size: 18px;
+    --weather-icon-size: 40px;
+    --condition-text-size: 13px;
+    --card-header-mb: 12px;
+    --temp-detail-size: 13px;
+    --temp-detail-gap: 16px;
+    --rain-chart-height: 70px;
+    --rain-bar-gap: 2px;
+    --rain-label-size: 8px;
+    --rain-time-size: 9px;
+    --aqi-badge-size: 26px;
+    --aq-grid-size: 12px;
+    --aq-grid-gap: 5px 14px;
+    /* Header */
+    --header-padding: 14px 12px;
+    --header-title-size: 20px;
+    --header-title-mb: 6px;
+    --header-controls-gap: 8px 12px;
+    --header-controls-size: 12px;
+  }
+}
+
+/* ── iPhone SE / very small (≤390px) ── */
+@media (max-width: 390px) {
+  :root {
+    --card-padding: 14px 12px;
+    --card-radius: 12px;
+    --temp-size: 46px;
+    --temp-unit-size: 20px;
+    --card-title-size: 16px;
+    --weather-icon-size: 36px;
+    --condition-text-size: 12px;
+    --temp-detail-size: 12px;
+    --temp-detail-gap: 12px;
+    --rain-chart-height: 60px;
+    --rain-bar-gap: 1px;
+    --rain-label-size: 7px;
+    --rain-time-size: 8px;
+    --aqi-badge-size: 22px;
+    --aqi-level-size: 11px;
+    --aq-grid-size: 12px;
+    --aq-grid-cols: 1fr;
+    --aq-grid-gap: 4px;
+    /* Header */
+    --header-title-size: 18px;
+  }
+}
