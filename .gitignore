@@ -1,0 +1,20 @@
+locations.json
+combined.json.tmp
+
+# Cloudflare Wrangler & Local Secrets
+.wrangler/
+.dev.vars
+
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+dist-ssr/
+
+# Environment files and overrides
+*.local
+.env.local
+.env.*.local
+
+

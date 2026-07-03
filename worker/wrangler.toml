@@ -1,0 +1,14 @@
+# Wrangler configuration file for Cloudflare Worker
+name = "weather-worker"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+# Automatically run the worker every 10 minutes to fetch upstream weather data
+[triggers]
+crons = [ "*/10 * * * *" ]
+
+# KV namespace used for caching the weather data.
+# Replace the id below with your actual KV namespace ID after running the creation command.
+[[kv_namespaces]]
+binding = "WEATHER_APP_KV"
+id = "23b17026bf844dccb453adfe5c24eb09"
